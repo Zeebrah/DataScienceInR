@@ -16,9 +16,9 @@ for (i in 1:1000) {
   # resid_sqr <- resid^2
   ssr[i, ] <- sum((summary(lm(y[, i] ~ x[, i]))$residuals) ^ 2)
 }
-par(mfrow = c(2, 1))
-hist(r_sqr, main = "Distribution of R^2 in simulation", xlab = "R^2")
-hist(ssr, main = "Distribution of SSR in simulation", xlab = "Sum of Squared Residuals")
+par(mfrow = c(1, 2))
+hist(r_sqr, main = "Dist. of R^2 in simulation", xlab = "R^2")
+hist(ssr, main = "Dist. of SSR in simulation", xlab = "Sum of Squared Residuals")
 alpha_hat <- mean(theta[, 1])
 alpha_hat
 beta_hat <- mean(theta[, 2])
@@ -42,9 +42,9 @@ sim_ols <- function(n, n_sims, var_vec = x^2 , ...) {
     # resid_sqr <- resid^2
     ssr[i, ] <- sum((summary(lm(y[, i] ~ x[, i]))$residuals) ^ 2)
   }
-  par(mfrow = c(2, 1))
-  hist(r_sqr, main = "Distribution of R^2 in simulation", xlab = "R^2", ...)
-  hist(ssr, main = "Distribution of SSR in simulation", xlab = "Sum of Squared Residuals", ... )
+  par(mfrow = c(1, 2))
+  hist(r_sqr, main = "Dist. of R^2 in simulation", xlab = "R^2", ...)
+  hist(ssr, main = "Dist. of SSR in simulation", xlab = "Sum of Squared Residuals", ... )
   alpha_hat <- mean(theta[, 1])
   alpha_hat
   beta_hat <- mean(theta[, 2])
